@@ -10,40 +10,18 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-const API_BASE = 'http://localhost:5000';
+// Import data statically
+import { profile, skills, projects, experience, testimonials } from './data';
 
 function App() {
-  const [profile, setProfile] = useState(null);
-  const [skills, setSkills] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [experience, setExperience] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [profileRes, skillsRes, projectsRes, expRes, testRes] = await Promise.all([
-          fetch(`${API_BASE}/api/profile`),
-          fetch(`${API_BASE}/api/skills`),
-          fetch(`${API_BASE}/api/projects`),
-          fetch(`${API_BASE}/api/experience`),
-          fetch(`${API_BASE}/api/testimonials`),
-        ]);
-
-        setProfile(await profileRes.json());
-        setSkills(await skillsRes.json());
-        setProjects(await projectsRes.json());
-        setExperience(await expRes.json());
-        setTestimonials(await testRes.json());
-      } catch (err) {
-        console.error('Failed to fetch data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    // Simulate loading for the nice spinner effect
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {

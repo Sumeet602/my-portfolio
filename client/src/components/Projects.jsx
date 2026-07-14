@@ -52,8 +52,10 @@ export default function Projects({ projects }) {
               className={`projects__card glass-card ${isVisible ? 'projects__card--visible' : ''}`}
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div className="projects__image">
-                <img src={`${API_BASE}${project.image}`} alt={project.title} loading="lazy" />
+              <div className="projects__image" style={{ background: `linear-gradient(135deg, hsl(${project.id * 50}, 70%, 50%), hsl(${project.id * 50 + 40}, 70%, 50%))` }}>
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', color: 'white', opacity: 0.8, textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                  {project.title.split(' ')[0]}
+                </div>
                 <div className="projects__image-overlay">
                   <a href={project.liveUrl} className="projects__link" target="_blank" rel="noopener noreferrer" aria-label="View live demo">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
