@@ -24,16 +24,31 @@ export default function Contact() {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus('sending');
     
-    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
+    const formData = new FormData(e.target);
+    formData.append("access_key", "aa649ea0-f3dc-4524-9ccd-1e179e85dc2d");
+    formData.append("subject", `New Portfolio Contact from ${form.name}`);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus('success');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
     
-    window.location.href = `mailto:goswami.sumeet2004@gmail.com?subject=${subject}&body=${body}`;
-    
-    setStatus('success');
-    setForm({ name: '', email: '', message: '' });
     setTimeout(() => setStatus(null), 5000);
   };
 
