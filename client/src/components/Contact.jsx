@@ -79,7 +79,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="contact__info-label">Location</h4>
-                <p className="contact__info-value">San Francisco, CA</p>
+                <p className="contact__info-value">Surat, Gujarat, India</p>
               </div>
             </div>
 
