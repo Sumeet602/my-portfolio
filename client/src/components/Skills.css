@@ -1,0 +1,123 @@
+.skills__filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.skills__filter {
+  padding: 0.625rem 1.5rem;
+  border-radius: 50px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.skills__filter:hover {
+  color: var(--text-primary);
+  border-color: var(--border-glow);
+}
+
+.skills__filter--active {
+  background: var(--accent-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.skills__card {
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.skills__card--visible {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.skills__card:hover {
+  transform: translateY(-4px);
+}
+
+.skills__card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.skills__icon {
+  font-size: 1.75rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass-strong);
+  border-radius: var(--radius-sm);
+}
+
+.skills__name {
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.skills__category {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.skills__percentage {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills__bar-track {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skills__bar-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  transition: width 1s ease;
+  position: relative;
+}
+
+.skills__bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}
