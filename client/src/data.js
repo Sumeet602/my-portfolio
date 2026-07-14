@@ -8,7 +8,7 @@ const profile = {
     "AI Architect"
   ],
   bio: "I'm a passionate AI/ML Engineer with expertise in building intelligent systems, training robust machine learning models, and deploying AI solutions. I specialize in Computer Vision, predictive analytics, and algorithmic problem-solving. My goal is to leverage data to solve complex real-world challenges.",
-  resumeUrl: "#",
+  resumeUrl: "/resume.pdf",
   stats: [
     { label: "Years Experience", value: "3+" },
     { label: "Models Deployed", value: "15+" },
